@@ -1,0 +1,76 @@
+<html lang="en">
+<head>
+    <title>MNISTDIGITS</title>
+    <link rel="stylesheet" type="text/css" href="./main.css">
+</head>
+<body>
+<div class="top_div">
+    <p style="color:white;font-size: x-large">Digit Recognition</p>
+</div>
+<div class="ndiv">
+    <p style="color: white;font-size: x-large">This is a Digit Reognition project. Draw any digit between 0 to 9 to recognize it.</p>
+</div>
+<div id="trapezoidd">
+    <div id="paint" class="canv">
+        <canvas id="myCanvas"></canvas>
+        <script>
+            var canvas = document.getElementById('myCanvas');
+            var ctx = canvas.getContext('2d');
+
+            var painting = document.getElementById('paint');
+            var paint_style = getComputedStyle(painting);
+            canvas.width = parseInt(paint_style.getPropertyValue('width'));
+            canvas.height = parseInt(paint_style.getPropertyValue('height'));
+
+            var mouse = {x: 0, y: 0};
+
+            canvas.addEventListener('mousemove', function(e) {
+                mouse.x = e.pageX - this.offsetLeft;
+                mouse.y = e.pageY - this.offsetTop;
+            }, false);
+
+            ctx.lineWidth = 10;
+            ctx.lineJoin = 'round';
+            ctx.lineCap = 'round';
+            ctx.strokeStyle = 'black';
+
+            canvas.addEventListener('mousedown', function(e) {
+                ctx.beginPath();
+                ctx.moveTo(mouse.x, mouse.y);
+
+                canvas.addEventListener('mousemove', onPaint, false);
+            }, false);
+
+            canvas.addEventListener('mouseup', function() {
+                canvas.removeEventListener('mousemove', onPaint, false);
+            }, false);
+
+            function clearArea() {
+                // Use the identity matrix while clearing the canvas
+                ctx.setTransform(1, 0, 0, 1, 0, 0);
+                ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
+            }
+
+            var onPaint = function() {
+                ctx.lineTo(mouse.x, mouse.y);
+                ctx.stroke();
+            };
+        </script>
+            </div>
+</div>
+<div style="display: flex">
+<div id="trapezoidd1">
+    <button  class="button" onclick="javascript:clearArea();return false;">Clear</button>
+</div>
+<div id="trapezoidd2"><button class="button" onclick="javascript:clearArea();return false;">Submit</button>
+</div>
+</div>
+<!--<div id="trapezoid"></div>-->
+<div class="slantedDiv">
+    <p>The digit is: </p>
+</div><br><br><br><br><br><br><br><br><br><br><br>
+<div class="slantedDiv1">
+    <p style="color: white">The accuracy is: </p>
+</div>
+</body>
+</html>
