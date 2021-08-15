@@ -9,4 +9,4 @@ itsdangerous==2.0.1
 Markupsafe==2.0.1
 opencv-python-headless
 keras
-tensorflow
+tensorflow==1.14.0
