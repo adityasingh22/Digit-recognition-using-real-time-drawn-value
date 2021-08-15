@@ -2,7 +2,7 @@
 
 <head>
     <title>Digit Recognition Real Time</title>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script src="/static/jquery.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="/static/main.css">
 </head>
@@ -62,8 +62,8 @@
                     ctx.setTransform(1, 0, 0, 1, 0, 0);
                     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
                     setRec();
-                    digit.innerHTML=''
-                    accuracy.innerHTML=''
+                    digit.innerHTML = ''
+                    accuracy.innerHTML = ''
                 }
 
                 function save_image() {
@@ -84,8 +84,8 @@
                     }).done(function (result) {
                         console.log("sent")
                         console.log(result)
-                        digit.innerHTML=result.digit
-                        accuracy.innerHTML=result.accuracy
+                        digit.innerHTML = result.digit
+                        accuracy.innerHTML = result.accuracy
                     });
                 }
 
