@@ -62,8 +62,8 @@
                     ctx.setTransform(1, 0, 0, 1, 0, 0);
                     ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
                     setRec();
-                    digit.innerHTML=''
-                    accuracy.innerHTML=''
+                    digit.innerHTML = ''
+                    accuracy.innerHTML = ''
                 }
 
                 function save_image() {
@@ -84,8 +84,8 @@
                     }).done(function (result) {
                         console.log("sent")
                         console.log(result)
-                        digit.innerHTML=result.digit
-                        accuracy.innerHTML=result.accuracy
+                        digit.innerHTML = result.digit
+                        accuracy.innerHTML = result.accuracy
                     });
                 }
 
