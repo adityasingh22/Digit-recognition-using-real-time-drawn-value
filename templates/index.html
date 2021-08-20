@@ -64,6 +64,7 @@
                     setRec();
                     digit.innerHTML = ''
                     accuracy.innerHTML = ''
+                    p.innerHTML = ""
                 }
 
                 function save_image() {
@@ -80,12 +81,16 @@
                         url: "/predict",
                         data: {
                             imageBase64: image
+                        },
+                        beforeSend: function () {
+                            p.innerHTML = "Processing your input...:P";
                         }
                     }).done(function (result) {
                         console.log("sent")
                         console.log(result)
                         digit.innerHTML = result.digit
                         accuracy.innerHTML = result.accuracy
+                        p.innerHTML = "Done"
                     });
                 }
 
@@ -93,6 +98,65 @@
                     ctx.lineTo(mouse.x, mouse.y);
                     ctx.stroke();
                 };
+
+                // Set up touch events for mobile, etc
+                canvas.addEventListener("touchstart", function (e) {
+                    mousePos = getTouchPos(canvas, e);
+                    var touch = e.touches[0];
+                    var mouseEvent = new MouseEvent("mousedown", {
+                        clientX: touch.clientX,
+                        clientY: touch.clientY
+                    });
+                    canvas.dispatchEvent(mouseEvent);
+                }, false);
+                canvas.addEventListener("touchend", function (e) {
+                    var mouseEvent = new MouseEvent("mouseup", {});
+                    canvas.dispatchEvent(mouseEvent);
+                }, false);
+                canvas.addEventListener("touchmove", function (e) {
+                    var touch = e.touches[0];
+                    var mouseEvent = new MouseEvent("mousemove", {
+                        clientX: touch.clientX,
+                        clientY: touch.clientY
+                    });
+                    canvas.dispatchEvent(mouseEvent);
+                }, false);
+
+                // Get the position of a touch relative to the canvas
+                function getTouchPos(canvasDom, touchEvent) {
+                    var rect = canvasDom.getBoundingClientRect();
+                    return {
+                        x: touchEvent.touches[0].clientX - rect.left,
+                        y: touchEvent.touches[0].clientY - rect.top
+                    };
+                }
+
+                // Get the position of a touch relative to the canvas
+                function getTouchPos(canvasDom, touchEvent) {
+                    var rect = canvasDom.getBoundingClientRect();
+                    return {
+                        x: touchEvent.touches[0].clientX - rect.left,
+                        y: touchEvent.touches[0].clientY - rect.top
+                    };
+                }
+
+                // Prevent scrolling when touching the canvas
+                document.body.addEventListener("touchstart", function (e) {
+                    if (e.target == canvas) {
+                        e.preventDefault();
+                    }
+                }, false);
+                document.body.addEventListener("touchend", function (e) {
+                    if (e.target == canvas) {
+                        e.preventDefault();
+                    }
+                }, false);
+                document.body.addEventListener("touchmove", function (e) {
+                    if (e.target == canvas) {
+                        e.preventDefault();
+                    }
+                }, false);
+
             </script>
         </div>
     </div>
@@ -100,10 +164,14 @@
         <div id="trapezoidd1">
             <button class="button" onclick="javascript:clearArea();return false;">Clear</button>
         </div>
-        <div id="trapezoidd2"><button class="button" onclick="javascript:save_image();return false;">Submit</button>
+        <div id="trapezoidd2">
+            <button class="button" onclick="javascript:save_image();return false;">Submit</button>
         </div>
     </div>
     <!--<div id="trapezoid"></div>-->
+    <div class="ndiv">
+        <p id="p"></p>
+    </div>
     <div class="slantedDiv">
         <p>The digit is: <span id="digit"></span></p>
     </div><br><br><br><br><br><br><br><br><br><br><br>
