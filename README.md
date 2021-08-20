@@ -4,4 +4,4 @@ To run application
 ```
 flask run
 ````
-<br>
+Live Demo: https://digit-recognition-flask-cnn.herokuapp.com/
