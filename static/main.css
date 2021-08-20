@@ -52,6 +52,7 @@ body{
     justify-content: right;
     align-items: flex-start ;
     padding-right: 1rem;
+    padding-left: 1rem;
 }
 #trapezoidd2{
     width: 50%;

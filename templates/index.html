@@ -85,11 +85,11 @@
                             imageBase64: image
                         },
                         beforeSend: function () {
-                            p.innerHTML = "Processing your input...:P";
+                            p.innerHTML = "Processing your input...this may take a few seconds";
                         }
                     }).done(function (result) {
-                        console.log("sent")
-                        console.log(result)
+                        // console.log("sent")
+                        // console.log(result)
                         digit.innerHTML = result.digit
                         accuracy.innerHTML = result.accuracy
                         p.innerHTML = "Done"
