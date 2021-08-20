@@ -4,4 +4,5 @@ To run application
 ```
 flask run
 ````
+Demo does not support mobile devices
 Live Demo: https://digit-recognition-flask-cnn.herokuapp.com/
