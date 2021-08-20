@@ -1,10 +1,12 @@
 <html lang="en">
 
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Digit Recognition Real Time</title>
     <script src="/static/jquery.min.js"></script>
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="/static/main.css">
+    <link rel="icon" href="/static/d.jpeg">
 </head>
 
 <body>
@@ -121,15 +123,6 @@
                     });
                     canvas.dispatchEvent(mouseEvent);
                 }, false);
-
-                // Get the position of a touch relative to the canvas
-                function getTouchPos(canvasDom, touchEvent) {
-                    var rect = canvasDom.getBoundingClientRect();
-                    return {
-                        x: touchEvent.touches[0].clientX - rect.left,
-                        y: touchEvent.touches[0].clientY - rect.top
-                    };
-                }
 
                 // Get the position of a touch relative to the canvas
                 function getTouchPos(canvasDom, touchEvent) {
