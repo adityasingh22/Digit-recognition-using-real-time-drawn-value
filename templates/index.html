@@ -7,7 +7,6 @@
     <!-- <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css')}}"> -->
     <link rel="stylesheet" type="text/css" href="/static/main.css">
     <link rel="icon" href="/static/d.jpeg">
-    <script src="https://unpkg.com/body-scroll-lock"></script>
 </head>
 
 <body>
@@ -136,21 +135,20 @@
 
                 // Prevent scrolling when touching the canvas
                 document.body.addEventListener("touchstart", function (e) {
-                    if (e.target.id == 'myCanvas') {
+                    if (e.target == canvas) {
                         e.preventDefault();
-                        bodyScrollLock.disableBodyScroll(canvas);
+                        e.stopPropagation();
                     }
                 }, false);
                 document.body.addEventListener("touchend", function (e) {
-                    if (e.target.id == 'myCanvas') {
+                    if (e.target == canvas) {
                         e.preventDefault();
-                        bodyScrollLock.disableBodyScroll(canvas);
+                        e.stopPropagation();
                     }
                 }, false);
                 document.body.addEventListener("touchmove", function (e) {
-                    if (e.target.id == 'myCanvas') {
+                    if (e.target == canvas) {
                         e.preventDefault();
-                        bodyScrollLock.disableBodyScroll(canvas);
                     }
                 }, false);
 
