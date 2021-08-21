@@ -68,15 +68,17 @@
                     accuracy.innerHTML = ''
                     p.innerHTML = ""
                 }
+                
+                // To download the image use
+                // const link = document.createElement('a');
+                // link.download = 'digit_image.png';
+                // link.href = canvas.toDataURL();
+                // link.click();
+                // link.delete; 
 
                 function save_image() {
-                    console.log(canvas.toDataURL());
                     const link = document.createElement('a');
-                    // link.download = 'digit_image.png';
-                    // link.href = canvas.toDataURL();
                     var image = canvas.toDataURL();
-                    // link.click();
-                    // link.delete;
                     clearArea();
                     $.ajax({
                         type: "POST",
@@ -88,8 +90,6 @@
                             p.innerHTML = "Processing your input...this may take a few seconds";
                         }
                     }).done(function (result) {
-                        // console.log("sent")
-                        // console.log(result)
                         digit.innerHTML = result.digit
                         accuracy.innerHTML = result.accuracy
                         p.innerHTML = "Done"
@@ -137,13 +137,11 @@
                 document.body.addEventListener("touchstart", function (e) {
                     if (e.target == canvas) {
                         e.preventDefault();
-                        e.stopPropagation();
                     }
                 }, false);
                 document.body.addEventListener("touchend", function (e) {
                     if (e.target == canvas) {
                         e.preventDefault();
-                        e.stopPropagation();
                     }
                 }, false);
                 document.body.addEventListener("touchmove", function (e) {
@@ -169,7 +167,7 @@
     </div>
     <div class="slantedDiv">
         <p>The digit is: <span id="digit"></span></p>
-    </div><br><br><br><br><br><br><br>
+    </div><br><br><br><br><br><br><br><br><br><br><br>
     <div class="slantedDiv1">
         <p style="color: white">The accuracy is: <span id="accuracy"></span></p>
     </div>

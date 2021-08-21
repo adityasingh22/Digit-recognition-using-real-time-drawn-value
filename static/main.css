@@ -48,17 +48,19 @@ body{
     width: 50%;
     height: 4rem;
     background-color: dimgrey;
-    justify-content: center;
+    display: flex;
+    justify-content: right;
     align-items: flex-start ;
-    padding-left: 50rem;
+    padding-right: 1rem;
 }
 #trapezoidd2{
     width: 50%;
     height: 4rem;
     background-color: dimgrey;
+    display: flex;
     justify-content: left;
     align-items: flex-start;
-    padding-right: 50rem;
+    padding-left: 1rem;
 }
 .button {
     transition-duration: 0.4s;
