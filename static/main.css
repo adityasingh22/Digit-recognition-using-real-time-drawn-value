@@ -39,15 +39,15 @@ body{
 #trapezoidd{
     width: 100%;
     height: 38rem;
-    background-color: dimgrey;
+    background-color: white;
     display: flex;
     justify-content: center;
     align-items: center;
 }
-#trapezoidd1{
+/* #trapezoidd1{
     width: 50%;
     height: 4rem;
-    background-color: dimgrey;
+    background-color: white;
     display: flex;
     justify-content: right;
     align-items: flex-start ;
@@ -56,12 +56,12 @@ body{
 #trapezoidd2{
     width: 50%;
     height: 4rem;
-    background-color: dimgrey;
+    background-color: white;
     display: flex;
     justify-content: left;
     align-items: flex-start;
     padding-left: 1rem;
-}
+} */
 .button {
     transition-duration: 0.4s;
     background-color: white;
